@@ -1,0 +1,64 @@
+* {
+ margin: 0;
+ padding: 0;
+}
+body {
+ font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+ background: rgb(140, 215, 189);
+ color: rgb(60, 60, 60);
+}
+button {
+ background: rgb(79, 79, 79);
+ border-radius: 5px;
+ border: none;
+ padding: 5px 10px;
+ font-weight: 800;
+ color: rgb(189, 193, 196);
+ box-shadow: 0px 0px 2px black;
+ cursor: pointer;
+}
+button:active {
+ color: rgb(135, 139, 142);
+ background: rgb(42, 42, 42);
+ box-shadow: 0px 0px 1px black;
+}
+h1 {
+ font-size: 35px;
+ margin: 20px;
+}
+h2 {
+ font-size: 25px;
+ margin: 15px;
+}
+
+textarea#txtArea {
+ margin: 15px;
+
+ color: rgb(42, 42, 42);
+ background: rgb(209, 227, 182);
+ border-radius: 5px;
+ padding: 3px;
+}
+textarea#txtArea:active {
+ border: 1px solid black;
+}
+.sample {
+ display: block;
+ margin: 15px;
+}
+.c {
+ margin-left: 15px;
+}
+button {
+ /* please wait */
+ margin: 15px;
+}
+.tf-tree * {
+ border-radius: 15px;
+}
+
+.tf-tree .tf-nc,
+.tf-tree .tf-node-content {
+ border: 2px solid rgb(47, 255, 206);
+ background: rgb(173, 214, 242);
+}
