@@ -2,11 +2,21 @@
  margin: 0;
  padding: 0;
 }
+
 body {
  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
  background: rgb(140, 215, 189);
  color: rgb(60, 60, 60);
 }
+section {
+ float: left;
+ width: 60%;
+}
+aside {
+ float: right;
+ width: 40%;
+}
+
 button {
  background: rgb(79, 79, 79);
  border-radius: 5px;
