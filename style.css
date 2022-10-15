@@ -72,3 +72,23 @@ button {
  border: 2px solid rgb(47, 255, 206);
  background: rgb(173, 214, 242);
 }
+.Hider {
+ height: 15px;
+ width: 15px;
+ border-radius: 20px;
+ background: rgb(81, 81, 111);
+ position: relative;
+ z-index: 1;
+ color: aliceblue;
+ text-align: center;
+
+ cursor: pointer;
+ transition: 0.3s;
+ transform: translateY(225%);
+}
+.Hider:hover {
+ height: 17px;
+ width: 17px;
+
+ background: rgb(102, 102, 139);
+}
