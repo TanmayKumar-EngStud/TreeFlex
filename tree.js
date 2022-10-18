@@ -1,3 +1,5 @@
+import { mapObj, imageLinks } from "./carousel.js";
+
 export class tree {
  root = null;
  elem = [];
@@ -23,7 +25,34 @@ export class tree {
  static draw(Tree) {
   let span = document.createElement("span");
   span.classList.add("tf-nc");
-  span.innerHTML += Tree.root;
+  // Here we will make the divs.
+  let imgDiv = document.createElement("div");
+  imgDiv.classList.add("tf-img");
+  let img = document.createElement("img");
+  let details = mapObj.get(Tree.root);
+
+  // user image.
+  img.src = imageLinks[details["img"]];
+  imgDiv.appendChild(img);
+
+  // user details.
+  let detailsDiv = document.createElement("div");
+  detailsDiv.classList.add("tf-details");
+  let usrName = document.createElement("div");
+  usrName.classList.add("usrname");
+  usrName.innerHTML = details["name"];
+  let phno = document.createElement("div");
+  phno.classList.add("phno");
+  phno.innerHTML = details["phno"];
+  let id = document.createElement("div");
+  id.classList.add("usrID");
+  id.innerHTML = details["usrId"];
+  detailsDiv.appendChild(usrName);
+  detailsDiv.appendChild(phno);
+  detailsDiv.appendChild(id);
+
+  span.appendChild(imgDiv);
+  span.appendChild(detailsDiv);
   let li = document.createElement("li");
   li.appendChild(span); // here we have add the main node.
 

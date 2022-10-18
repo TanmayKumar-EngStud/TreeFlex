@@ -1,21 +1,21 @@
 import { tree } from "./tree.js";
+
 function select(what, index) {
  return document.querySelectorAll(what)[index];
 }
 
-let button = select("button#btn", 0);
+let generate = select("button#btn", 0);
 
-button.addEventListener("click", (event) => {
+generate.addEventListener("click", (event) => {
  let text = select("textarea#txtArea", 0).value;
- // console.log(text);
- // now we need to extract the commands.
+
  let ourTree = commands(text);
 
  let drawingArea = select(".tf-tree", 0);
  let drawing = tree.draw(ourTree);
  let ulFinal = document.createElement("ul");
  ulFinal.appendChild(drawing);
- console.log(ulFinal);
+ // console.log(ulFinal);
  document.querySelector(".tf-tree").innerHTML = ""; // clearing up the space.
  drawingArea.append(ulFinal);
  secondStep();
@@ -37,9 +37,9 @@ function commands(text) {
 // part 2: hiding the elements.
 function secondStep() {
  let Hider = [...document.querySelectorAll(".Hider")];
- console.log(Hider);
+ // console.log(Hider);
  Hider.forEach((hider) => {
-  console.log(hider);
+  // console.log(hider);
   hider.addEventListener("click", (event) => {
    // getting the list of all the class names from the event.
    let list = event.target.classList;

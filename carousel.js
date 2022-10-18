@@ -11,6 +11,7 @@ let imgLinks = [
  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
 ];
+export let imageLinks = [...imgLinks];
 
 function activate() {
  let imgLocation = document.querySelector(".photoSelector .imgArea .img");
@@ -28,7 +29,14 @@ function activate() {
  let images = document.querySelectorAll(
   ".photoSelector .imgArea .img ul li img"
  );
- images[0].style.opacity = 1;
+
+ if (images.length == 0) {
+  imgLocation.style.visibility = "hidden";
+  let addNew = document.querySelector(".inputArea .getMember #addNew");
+  addNew.style.cursor = "not-allowed";
+ } else {
+  images[0].style.opacity = 1;
+ }
 }
 activate();
 
@@ -65,6 +73,9 @@ backwardBtn.addEventListener("click", (event) => {
  }
 });
 function findActive() {
+ let images = document.querySelectorAll(
+  ".photoSelector .imgArea .img ul li img"
+ );
  for (let i in images) {
   if (getComputedStyle(images[i]).opacity == 1) {
    return i;
@@ -84,7 +95,8 @@ function removeImg(i) {
 }
 // Here comes the main task.
 let addNew = document.querySelector(".inputArea .getMember #addNew");
-let mapObj = new Map();
+export let mapObj = new Map();
+
 addNew.addEventListener("click", (event) => {
  let i = +findActive();
 
@@ -94,15 +106,27 @@ addNew.addEventListener("click", (event) => {
   usrId: document.querySelector(".inputArea .getMember #UserId").value,
   img: i,
  };
- console.log(Elem);
+ // console.log(Elem);
  for (let x in Elem) {
   if (Elem[x] === "") {
    alert("Fill all the entries!");
    return;
   }
  }
+ if (mapObj.has(Elem.usrId)) {
+  alert("This user Id already exist");
+  return;
+ }
  mapObj.set(Elem.usrId, Elem);
  removeImg(i);
 
+ document.querySelector('.inputArea .getMember input[name="hash"]').value =
+  Elem.usrId;
  activate();
+});
+
+let key = document.querySelector('.inputArea .getMember input[name="hash"]');
+key.addEventListener("click", (event) => {
+ let val = event.currentTarget.value;
+ navigator.clipboard.writeText(val);
 });

@@ -154,3 +154,26 @@
 .tf-tree li.tf-dashed-children > .tf-node-content:before {
  border-left-style: solid;
 }
+.tf-tree .tf-nc .tf-img img,
+.tf-tree .tf-node-content .tf-img img {
+ height: 115px;
+ width: 115px;
+ object-fit: cover;
+ border-radius: 0;
+}
+.tf-tree .tf-nc,
+.tf-tree .tf-node-content {
+ display: flex;
+ gap: 10px;
+}
+.tf-tree .tf-nc .tf-details,
+.tf-tree .tf-node-content .tf-details {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ font-weight: 900;
+ border: 1px dashed black;
+ border-radius: 0px;
+ gap: 15px;
+ padding: 0px 10px;
+}
