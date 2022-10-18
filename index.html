@@ -4,19 +4,41 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Working with Treeflex</title>
+  <title>The Team Tree!!</title>
   <!-- <link
    rel="stylesheet"
    href="https://unpkg.com/treeflex/dist/css/treeflex.css"
   /> -->
+  <script src="https://kit.fontawesome.com/3c8dd29500.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="treeflex.css">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="carousel.css">
  </head>
  <body>
   <div class="inputArea">
    
-    <h1>This is the exmaple of a tree</h1>
-    <h2>Taking the data first</h2>
+    <h1>This is a Team Tree!</h1>
+    <h2>First you need feed data for your team member!</h2>
+    <div class="getMember">
+      <div class="textData">
+        <input type="text" name="name" placeholder="Member's Name" id="name" value="testing">
+        <input type="number" name="phno" placeholder="Phone Number" id= "phno" value= 233> 
+        <input type="text" name="ID" placeholder="User Id" id="UserId" value="testing#123">
+      </div>
+      
+        <div class="photoSelector">
+          <div class="heading">Select Photo</div>
+          <div class="imgArea">
+            <button id="forBack"> <i class="fa-sharp fa-solid fa-backward"></i></button>
+            <div class="img"></div>
+            <button id="forFront"> <i class="fa-sharp fa-solid fa-forward"></i> </button>
+          </div>
+
+        </div>
+      
+      <button id="addNew"> Create new User!</button>
+      <input type="text" name="hash" readonly="true">
+    </div>
     <textarea cols="20" rows="20" id="txtArea"></textarea>
    <aside>
     <span class="sample">
@@ -38,6 +60,7 @@
   <button id="btn">Generate</button>
     <div class="tf-tree"></div>
  </body>
+ <script type= "module" src="carousel.js" defer></script>
  <script type="module" src="tree.js"></script>
  <script type="module" src="improvize.js"></script>
 </html>
