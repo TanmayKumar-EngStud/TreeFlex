@@ -12,29 +12,36 @@ let imgLinks = [
  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
 ];
 
-let imgLocation = document.querySelector(".photoSelector .imgArea .img");
-// this is the first thing that is needed to be loaded,
-// So i am not writing this in a function, perhaps I am writing this directly inside
-// the script.
-let ul = document.createElement("ul");
+function activate() {
+ let imgLocation = document.querySelector(".photoSelector .imgArea .img");
+ imgLocation.innerHTML = "";
+ let ul = document.createElement("ul");
 
-for (let i of imgLinks) {
- let li = document.createElement("li");
- let img = document.createElement("img");
- img.src = i;
- li.appendChild(img);
- ul.appendChild(li);
+ for (let i of imgLinks) {
+  let li = document.createElement("li");
+  let img = document.createElement("img");
+  img.src = i;
+  li.appendChild(img);
+  ul.appendChild(li);
+ }
+ imgLocation.appendChild(ul);
+ let images = document.querySelectorAll(
+  ".photoSelector .imgArea .img ul li img"
+ );
+ images[0].style.opacity = 1;
 }
-imgLocation.appendChild(ul);
+activate();
+
 let images = document.querySelectorAll(
  ".photoSelector .imgArea .img ul li img"
 );
-images[0].style.opacity = 1;
-
 let forwardBtn = document.querySelector(".photoSelector .imgArea #forFront");
 let backwardBtn = document.querySelector(".photoSelector .imgArea #forBack");
 
 forwardBtn.addEventListener("click", (event) => {
+ let images = document.querySelectorAll(
+  ".photoSelector .imgArea .img ul li img"
+ );
  for (let i in images) {
   if (getComputedStyle(images[i]).opacity == 1) {
    images[i++].style.opacity = 0;
@@ -45,6 +52,9 @@ forwardBtn.addEventListener("click", (event) => {
  }
 });
 backwardBtn.addEventListener("click", (event) => {
+ let images = document.querySelectorAll(
+  ".photoSelector .imgArea .img ul li img"
+ );
  for (let i in images) {
   if (getComputedStyle(images[i]).opacity == 1) {
    images[i--].style.opacity = 0;
@@ -92,7 +102,7 @@ addNew.addEventListener("click", (event) => {
   }
  }
  mapObj.set(Elem.usrId, Elem);
- console.log(imgLinks.length);
  removeImg(i);
- console.log(imgLinks.length);
+
+ activate();
 });
