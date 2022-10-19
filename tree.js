@@ -32,7 +32,7 @@ export class tree {
   let details = mapObj.get(Tree.root);
 
   // user image.
-  img.src = imageLinks[details["img"]];
+  img.src = details["img"];
   imgDiv.appendChild(img);
 
   // user details.
@@ -40,13 +40,13 @@ export class tree {
   detailsDiv.classList.add("tf-details");
   let usrName = document.createElement("div");
   usrName.classList.add("usrname");
-  usrName.innerHTML = details["name"];
+  usrName.innerHTML = "User Name: " + details["name"];
   let phno = document.createElement("div");
   phno.classList.add("phno");
-  phno.innerHTML = details["phno"];
+  phno.innerHTML = "Phone Number: " + details["phno"];
   let id = document.createElement("div");
   id.classList.add("usrID");
-  id.innerHTML = details["usrId"];
+  id.innerHTML = "User Id: " + details["usrId"];
   detailsDiv.appendChild(usrName);
   detailsDiv.appendChild(phno);
   detailsDiv.appendChild(id);

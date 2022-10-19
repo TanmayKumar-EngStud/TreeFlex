@@ -104,7 +104,7 @@ addNew.addEventListener("click", (event) => {
   name: document.querySelector(".inputArea .getMember #name").value,
   phno: document.querySelector(".inputArea .getMember #phno").value,
   usrId: document.querySelector(".inputArea .getMember #UserId").value,
-  img: i,
+  img: imgLinks[i],
  };
  // console.log(Elem);
  for (let x in Elem) {
